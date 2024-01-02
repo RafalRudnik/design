@@ -1,0 +1,106 @@
+@media (min-width: 992px) {
+	.problems {
+		font-size: 3rem;
+	}
+	.nav {
+		margin: 1em 0em;
+		line-height: 400%;
+		&-item {
+			font-size: 12rem;
+			// &--link {
+			// 	&::before {
+			// 		left: 40%;
+			// 	}
+			// }
+		}
+	}
+	.logo {
+		h1,
+		h2 {
+			font-size: 6rem;
+		}
+	}
+	.nextSection {
+		&--link {
+			width: 45%;
+			top: -20%;
+			font-size: 9rem;
+			padding-right: 4.5vw;
+		}
+	}
+	.about {
+		&-header {
+			&--title {
+				font-size: 9rem;
+			}
+			&--img {
+				height: auto;
+			}
+		}
+		&-slide {
+			&--title {
+				font-size: 6rem;
+			}
+			&-item {
+				&--desc {
+					p {
+						width: 60%;
+					}
+				}
+			}
+		}
+		&-welcome {
+			align-items: flex-start;
+			&--img {
+				width: 25%;
+			}
+			&--desc {
+				font-size: 3rem;
+			}
+		}
+	}
+	.work {
+		&-points {
+			gap: 8em;
+		}
+		&-point {
+			gap: 4em;
+			&--title {
+				font-size: 1.8rem;
+				width: 40%;
+			}
+			&--desc {
+				width: 60%;
+				font-size: 3rem;
+				font-weight: 300;
+			}
+		}
+		&-baner {
+			height: 200px;
+			font-size: 20rem;
+		}
+	}
+	.project {
+		&-img {
+			height: 700px;
+		}
+	}
+	.projects {
+		&-header {
+			padding-top: 10em;
+			&--title {
+				font-size: 26rem;
+				p {
+					line-height: 70%;
+				}
+			}
+		}
+		&-sub {
+			padding-top: 10em;
+			h3 {
+				font-size: 6rem;
+				transform: scaleY(2);
+			}
+		}
+	}
+}

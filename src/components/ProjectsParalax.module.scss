@@ -1,0 +1,131 @@
+.mainGallery {
+	width: 100%;
+}
+
+.gallery {
+	height: 175vh;
+	overflow: hidden;
+	background: rgb(45, 45, 45);
+	width: 100%;
+	.galleryWrapper {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		gap: 2vw;
+		width: 100%;
+		top: -12.5vh;
+		height: 200vh;
+		padding: 2vw;
+		.column {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 25%;
+			min-width: 49vw;
+			gap: 2vw;
+			white-space: nowrap;
+			&:nth-of-type(1) {
+				top: -30%;
+			}
+			&:nth-of-type(2) {
+				top: -70%;
+			}
+			&:nth-of-type(3) {
+				top: -30%;
+			}
+			&:nth-of-type(4) {
+				top: -60%;
+			}
+			.imageContainer {
+				position: absolute;
+				height: 33%;
+				width: 100%;
+				position: relative;
+				border-radius: 1vw;
+				overflow: hidden;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: fill;
+					object-position: center;
+				}
+			}
+		}
+	}
+}
+.spacer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	color: #f4f1f1;
+	p {
+		animation: blink 4s infinite;
+		font-size: 2rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.gallery {
+		.galleryWrapper {
+			.column {
+				min-width: 250px;
+			}
+		}
+	}
+	.spacer {
+		p {
+			font-size: 4rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.gallery {
+		.galleryWrapper {
+			.column {
+				.imageContainer {
+					img {
+						width: 100%;
+						object-fit: fill;
+						object-position: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	10% {
+		opacity: 0.5;
+	}
+	15% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 0.5;
+	}
+	45% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	70% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	95% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
