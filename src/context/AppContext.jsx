@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer, useState } from 'react';
 
 const initialState = {
 	menuOpen: true,
@@ -32,9 +32,34 @@ const AppContext = createContext();
 function DataProvider({ children }) {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { menuOpen, page, isScrolling } = state;
+	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+	const [icon, setIcon] = useState(null);
+	const [cursorActive, setCursorActive] = useState(false);
+
+	const cursorVariant = 'default';
+	const variants = {
+		default: {
+			x: mousePosition.x - 10,
+			y: mousePosition.y - 90,
+		},
+	};
 
 	return (
-		<AppContext.Provider value={{ menuOpen, page, isScrolling, dispatch }}>
+		<AppContext.Provider
+			value={{
+				menuOpen,
+				page,
+				isScrolling,
+				mousePosition,
+				setMousePosition,
+				variants,
+				cursorVariant,
+				dispatch,
+				icon,
+				setIcon,
+				cursorActive,
+				setCursorActive,
+			}}>
 			{children}
 		</AppContext.Provider>
 	);

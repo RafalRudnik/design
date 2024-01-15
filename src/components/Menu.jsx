@@ -28,7 +28,7 @@ function Menu() {
 	const { menuOpen, page } = useData();
 
 	return (
-		<AnimatePresence>
+		<AnimatePresence mode='wait'>
 			{menuOpen && page === '' && (
 				<motion.ul
 					className='nav'

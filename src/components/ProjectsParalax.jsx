@@ -47,9 +47,13 @@ function ProjectsParalax() {
 	return (
 		<div className={styles.mainGallery}>
 			<div className={styles.spacer}>
-				<p>
+				<motion.p
+					initial={{ rotate: '90deg' }}
+					whileInView={{ rotate: 0 }}
+					transition={{ duration: 0.8, delay: 0.3 }}
+					viewport={{ once: true }}>
 					<i className='ti ti-arrow-down-circle'></i>
-				</p>
+				</motion.p>
 			</div>
 			<div className={styles.gallery} ref={gallery}>
 				<div className={styles.galleryWrapper}>
@@ -60,9 +64,12 @@ function ProjectsParalax() {
 				</div>
 			</div>
 			<div className={styles.spacer}>
-				<p>
+				<motion.p
+					initial={{ rotate: '90deg' }}
+					whileInView={{ rotate: 0 }}
+					transition={{ duration: 0.8, delay: 0.3 }}>
 					<i className='ti ti-arrow-down-right-circle'></i>
-				</p>
+				</motion.p>
 			</div>
 		</div>
 	);

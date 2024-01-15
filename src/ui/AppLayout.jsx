@@ -8,10 +8,13 @@ import Logo from '../components/Logo';
 import LogoMobile from '../components/LogoMobile';
 import BackBtn from './BackBtn';
 import Problems from '../components/Problems';
+import { motion } from 'framer-motion';
 
 function AppLayout() {
 	const { pathname } = useLocation();
-	const { dispatch, page, menuOpen } = useData();
+	const { dispatch, page } = useData();
+	const { setMousePosition, cursorVariant, variants, icon, cursorActive } =
+		useData();
 
 	useEffect(
 		function () {
@@ -19,6 +22,23 @@ function AppLayout() {
 			dispatch({ type: 'isScrolling', payload: false });
 		},
 		[pathname, dispatch]
+	);
+
+	useEffect(
+		function () {
+			const mouseMove = (e) => {
+				setMousePosition({
+					x: e.clientX,
+					y: e.clientY,
+				});
+			};
+			window.addEventListener('mousemove', mouseMove);
+
+			return () => {
+				window.removeEventListener('mousemove', mouseMove);
+			};
+		},
+		[setMousePosition]
 	);
 
 	return (
@@ -33,6 +53,16 @@ function AppLayout() {
 				<ScrollToTop />
 			</main>
 			<Footer />
+			<motion.div
+				className={`cursor ${cursorActive ? 'cursorActive' : ''}`}
+				animate={cursorVariant}
+				variants={variants}>
+				<motion.div
+					animate={{ rotate: 360 }}
+					transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}>
+					{icon}
+				</motion.div>
+			</motion.div>
 		</div>
 	);
 }
